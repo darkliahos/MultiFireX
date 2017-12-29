@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.geckoWebBrowser1 = new Skybound.Gecko.GeckoWebBrowser();
             this.txtnavigate = new System.Windows.Forms.TextBox();
             this.tabwindow = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -44,6 +43,7 @@
             this.back = new System.Windows.Forms.PictureBox();
             this.prgpageload = new System.Windows.Forms.ProgressBar();
             this.killtab = new System.Windows.Forms.PictureBox();
+            this.geckoWebBrowser1 = new Gecko.GeckoWebBrowser();
             this.tabwindow.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.addtab)).BeginInit();
@@ -56,19 +56,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.back)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.killtab)).BeginInit();
             this.SuspendLayout();
-            // 
-            // geckoWebBrowser1
-            // 
-            this.geckoWebBrowser1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.geckoWebBrowser1.Location = new System.Drawing.Point(0, 0);
-            this.geckoWebBrowser1.Name = "geckoWebBrowser1";
-            this.geckoWebBrowser1.Size = new System.Drawing.Size(1040, 491);
-            this.geckoWebBrowser1.TabIndex = 1;
-            this.geckoWebBrowser1.Navigating += new Skybound.Gecko.GeckoNavigatingEventHandler(this.geckoWebBrowser1_Navigating);
-            this.geckoWebBrowser1.Navigated += new Skybound.Gecko.GeckoNavigatedEventHandler(this.geckoWebBrowser1_Navigated);
-            this.geckoWebBrowser1.DocumentCompleted += new System.EventHandler(this.geckoWebBrowser1_DocumentCompleted);
             // 
             // txtnavigate
             // 
@@ -250,6 +237,15 @@
             this.killtab.TabStop = false;
             this.killtab.Click += new System.EventHandler(this.killtab_Click);
             // 
+            // geckoWebBrowser1
+            // 
+            this.geckoWebBrowser1.FrameEventsPropagateToMainWindow = false;
+            this.geckoWebBrowser1.Location = new System.Drawing.Point(1, 6);
+            this.geckoWebBrowser1.Name = "geckoWebBrowser1";
+            this.geckoWebBrowser1.Size = new System.Drawing.Size(1041, 482);
+            this.geckoWebBrowser1.TabIndex = 0;
+            this.geckoWebBrowser1.UseHttpActivityObserver = false;
+            // 
             // frmGeckoBrowser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -289,8 +285,6 @@
         }
 
         #endregion
-
-        private Skybound.Gecko.GeckoWebBrowser geckoWebBrowser1;
         private System.Windows.Forms.TextBox txtnavigate;
         private System.Windows.Forms.TabControl tabwindow;
         private System.Windows.Forms.TabPage tabPage1;
@@ -305,6 +299,7 @@
         private System.Windows.Forms.PictureBox addtab;
         private System.Windows.Forms.ProgressBar prgpageload;
         private System.Windows.Forms.PictureBox killtab;
+        private Gecko.GeckoWebBrowser geckoWebBrowser1;
     }
 }
 

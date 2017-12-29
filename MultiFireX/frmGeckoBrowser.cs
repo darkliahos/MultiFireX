@@ -1,7 +1,8 @@
-﻿using System;
+﻿using Gecko;
+using Gecko.Events;
+using System;
 using System.Configuration;
 using System.Windows.Forms;
-using Skybound.Gecko;
 
 namespace MultiFireX
 {
@@ -11,10 +12,10 @@ namespace MultiFireX
 
         public frmGeckoBrowser()
         {
-            Home = ConfigurationSettings.AppSettings["HomePage"];
-            //        public const string xulrunnerPath = @"C:\Program Files\Mozilla XULRunner\";
-            Skybound.Gecko.Xpcom.Initialize(ConfigurationSettings.AppSettings["XULRunnerPath"]);
             InitializeComponent();
+            Home = ConfigurationSettings.AppSettings["HomePage"];
+            Xpcom.Initialize("Firefox");
+            geckoWebBrowser1.Navigate(Home);
             
         }
 
@@ -26,7 +27,7 @@ namespace MultiFireX
             prgpageload.Maximum = 100;
             prgpageload.Step = 10;
             prgpageload.PerformStep();
-            
+
         }
 
         private void geckoWebBrowser1_Navigated(object sender, GeckoNavigatedEventArgs e)
@@ -42,9 +43,9 @@ namespace MultiFireX
         }
 
         private GeckoWebBrowser getCurrentBrowser()
-            {
-                return (GeckoWebBrowser)tabwindow.SelectedTab.Controls[0];
-            }
+        {
+            return (GeckoWebBrowser)tabwindow.SelectedTab.Controls[0];
+        }
 
         private void addNewTab()
         {
